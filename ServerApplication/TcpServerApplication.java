@@ -23,15 +23,15 @@ public class TcpServerApplication
     public JTextArea textServerArea;
 
     /**
-     * метод TcpServerApplication()
-     * инициализирует компоненты с параметрами по умолчанию
+     * method TcpServerApplication()
+     * initializes components with default parameters
      */
 
     public void TcpServerApplicationInitialization() {
 
         //icons
-        Icon iconClear = new ImageIcon("D:\\Game Dev\\MyProjects\\Learn\\Learning\\QuickSolution\\Jp12\\src\\images\\clear.png");
-        Icon iconExit = new ImageIcon("D:\\Game Dev\\MyProjects\\Learn\\Learning\\QuickSolution\\Jp12\\src\\images\\exit.png");
+        Icon iconClear = new ImageIcon("..\images\clear.png");
+        Icon iconExit = new ImageIcon("..\images\exit.png");
 
         //mainframe
         JFrame frame = new JFrame();
@@ -85,9 +85,9 @@ public class TcpServerApplication
 
 
     /**
-     * метод actionExit()
-     * @param e
-     * осуществляет выход с приложения, при клике кнопке "Exit"
+     * method actionExit()
+     * @param with
+     * exits the application by clicking the "Exit" button
      */
 
     public void actionExit(ActionEvent e) {
@@ -95,9 +95,9 @@ public class TcpServerApplication
     }
 
     /**
-     * метод actionClearFields()
-     * @param e
-     * осуществляет очистку всех полей, при клике кнопке "Clear"
+     * method actionClearFields()
+     * @param with
+     * clears all fields by clicking the "Clear" button
      */
 
     public void actionClearFields(ActionEvent e) {
@@ -105,8 +105,8 @@ public class TcpServerApplication
     }
 
     /**
-     * метод actionAppendText()
-     * осуществляет добавление текста к существующиму
+     * method actionAppendText()
+     * adds text to an existing one
      */
 
     public void actionAppendText() {
@@ -115,20 +115,20 @@ public class TcpServerApplication
     }
 }
 
-/** класс ServerFunctional
- * выполняет основной функционал работы сервера
- * содержит конструктор ServerFunctional() и метод
+/** class ServerFunctional
+ * performs the main functionality of the server
+ * contains a constructor ServerFunctional() и method
  * searchMinMaxMatrixElements(),
- * принимает размеры матрицы в целочисленном варианте
+ * takes the dimensions of the matrix in the integer version
  */
 
 class ServerFunctional {
 
     // public static void main(String[] args) {
-    /** конструктор ServerFunctional()
-     *  осуществляет запуск и работу сервера,
-     *  вывод информации в текстовое поле,
-     *  алгоритм приема и отправки данных, с сервера и к клиенту
+    /** constructor ServerFunctional()
+     *  performs the launch and operation of the server,
+     *  displaying information in a text field,
+     *  the algorithm for receiving and sending data, from the server and to the client
      */
     public void ServerFunctional() {
 
@@ -182,14 +182,14 @@ class ServerFunctional {
         }
     }
 
-    /** метод public void searchMinMaxMatrixElements()
-     * @param n,m принимает размеры матрицы в целочисленном варианте
-     * находит минимальные и максимальные элементы матрицы
-     * принимает ранее запрашиваемую информацию от клиента(количество строк и столбцов
-     * матрицы, NxM)
-     * Заполнение матрицы случайными числами "matrix[i][j] = random.nextInt(10) + 1", где
-     * "i меньше n и j меньше m"
-     * вывод заполненной матрицы осуществляется на сервере, а вывод найденного max и min элементов у клиента
+    /** method public void searchMinMaxMatrixElements()
+     * @param n,m takes the dimensions of the matrix in the integer version
+     * finds the minimum and maximum elements of the matrix
+     * accepts previously requested information from the client (number of rows and columns
+     * matrices, NxM)
+     * Filling the matrix with random numbers "matrix[i][j] = random.nextInt(10) + 1", when
+     * "i < n and j < m"
+     * the output of the filled matrix is carried out on the server, and the output of the found max and min elements from the client
      */
     public void searchMinMaxMatrixElements(int n, int m)
     {
@@ -199,7 +199,7 @@ class ServerFunctional {
         TcpServerApplication tcpServerApplication = new TcpServerApplication();
         TcpClientApplication tcpClientApplication = new TcpClientApplication();
 
-        //Full
+        // Filing
         tcpServerApplication.textServerArea.append("fulled matrix: \n");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -209,7 +209,7 @@ class ServerFunctional {
             tcpServerApplication.textServerArea.append("\n");
         }
 
-        //Searh min, max
+        // Searh min, max
         max = matrix[0][0];
         min = matrix[0][0];
 
@@ -228,8 +228,8 @@ class ServerFunctional {
 
 
 /**
- * класс RunServerApplication - хранит в себе main, для запуска приложения
- * main - точка входа в класс и приложение
+ * class RunServerApplication - stores the main in itself to run the application
+ * main - the entry point to the classroom and the application
  */
 class RunServerApplication {
 
@@ -239,71 +239,5 @@ class RunServerApplication {
         tcpApplication.actionAppendText();
 
         ServerFunctional serverFunctional = new ServerFunctional();
-
     }
 }
-
-
-
-
-/*int port = 8030; //1025 - 65535
-
-        TcpServerApplication tcpServerApplication = new TcpServerApplication();
-
-        tcpApplication.textServerArea.append("Server running...\n");
-        tcpApplication.textServerArea.append("Waiting client...\n");
-        tcpApplication.textServerArea.append("Connection accepted.\n");
-
-        try {
-
-            System.out.println("Server running...");
-            ServerSocket serverSocket = new ServerSocket(port);
-            System.out.println("Waiting client...");
-
-            Socket socket = serverSocket.accept();
-            System.out.println("Connection accepted.");
-            System.out.println();
-
-            InputStream input = socket.getInputStream();
-            OutputStream output = socket.getOutputStream();
-
-            //convert streams to dataStreams
-            DataInputStream dataInput = new DataInputStream(input);
-            DataOutputStream dataOutput = new DataOutputStream(output);
-
-            String lineN = null, lineM = null;
-            int n = 0, m = 0;
-
-            while (true) {
-                //dataOutput.writeUTF("Size for matrix N: ");
-                //lineN = dataInput.readUTF();
-                //dataOutput.writeUTF("Size for matrix M: ");
-                //lineM = dataInput.readUTF();
-
-                dataOutput.writeUTF("Size for matrix N: ");
-                lineN = dataInput.readUTF();
-                dataOutput.writeUTF("Size for matrix M: ");
-                lineM = dataInput.readUTF();
-
-                n = Integer.parseInt(lineN);
-                m = Integer.parseInt(lineM);
-
-                ServerFunctional serverFunctional = new ServerFunctional();
-
-                serverFunctional.searchMinMaxMatrixElements(n, m);
-
-                dataOutput.flush();
-
-                break;
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e) {
-            System.err.println("Error string format, only numbers!");
-        }
-        catch (NullPointerException exception)
-        {
-            exception.printStackTrace();
-        }
-    */

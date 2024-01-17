@@ -5,7 +5,7 @@ import java.sql.*;
 
 /**
  * class DataBaseManager
- * выполняет "связь" между Бд и приложением
+ * performs a "link" between the Database and the application
  */
 //add, delete, refresh, save(edit)
 public class DataBaseManager {
@@ -35,8 +35,8 @@ public class DataBaseManager {
     }
 
     /**
-     * метод public void addToDataBase()
-     * добавляет данные в БД из текстовых полей приложения
+     * method public void addToDataBase()
+     * adds data to the database from the application's text fields
      */
     public void addToDataBase(int _id, String _name, String _manufDetails,
     String _date, int _cost) throws SQLException {
@@ -68,11 +68,6 @@ public class DataBaseManager {
             try { statement.close(); } catch(SQLException se) { /*can't do anything */ }
             try { resultSet.close(); } catch(SQLException se) { /*can't do anything */ }
         }
-
-        //https://java-master.com/%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%D1%81-%D0%B1%D0%B0%D0%B7%D0%BE%D0%B9-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-mysql-%D0%B2-java/
-        //https://tproger.ru/translations/java-jdbc-example/
-        //https://habr.com/ru/sandbox/146588/
-
     }
 
     public void updateDataBase() throws SQLException {
@@ -101,11 +96,9 @@ public class DataBaseManager {
         }
     }
 
-   /* public void editInDataBase(){}*/
-
     /**
-     * метод public void deleteFromDataBase()
-     * удааляет данные в БД
+     * method public void deleteFromDataBase()
+     * deletes data in the database
      */
     public void deleteFromDataBase()
     {
@@ -127,8 +120,8 @@ public class DataBaseManager {
     }
 
     /**
-     * метод public void printDataFromDataBase()
-     * выводит данные из БД
+     * method public void printDataFromDataBase()
+     * outputs data from the database
      */
     public void printDataFromDataBase(JTable table)
     {
@@ -140,8 +133,6 @@ public class DataBaseManager {
             statement = connection.createStatement();
 
             resultSet = statement.executeQuery(query);
-
-
 
             int rowCount = 0;
             while(resultSet.next()) {
@@ -160,23 +151,6 @@ public class DataBaseManager {
             try { resultSet.close(); } catch(SQLException se) { /*can't do anything */ }
         }
     }
-
-    /*public static void main(String[] args) throws ClassCastException,SQLException, IOException {
-        //Class.forName('')
-
-        //connection = DriverManager.getConnection(URL,USER_NAME,PASSWORD);
-        //statement = connection.createStatement();
-
-        resultSet = statement.executeQuery("SELECT * FROM souvenir");
-        while (resultSet.next())
-        {
-            System.out.println(resultSet.getString(2)+" "+
-                    resultSet.getString(3)+" "+
-                    resultSet.getDate(4)+" "+
-                    resultSet.getInt(5));
-        }
-        statement.close();
-    }*/
 }
 
 

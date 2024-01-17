@@ -12,8 +12,8 @@ import java.util.Date;
 
 
 /**
- * класс AboutFile - хранит в себе конструктор AboutFile() и метод actionPerformed(ActionEvent e)
- * также хранит компоненты кнопки(JButton), текстового поля(JTextArea) и контейнера(Container)
+ * class AboutFile - stores the constructor in itself AboutFile() and method actionPerformed(ActionEvent e)
+ * it also stores the components of the button(JButton), text field(JTextArea) and the container(Container)
  */
 public class AboutFile
         extends JFrame
@@ -24,8 +24,8 @@ public class AboutFile
     private JTextArea textOutputArea;
 
     /**
-     * конструктор AboutFile()
-     * инициализирует компоненты с параметрами по умолчанию
+     * constructor AboutFile()
+     * initializes components with default parameters
      */
 
     // constructor, to initialize the components
@@ -69,11 +69,11 @@ public class AboutFile
     }
 
     /**
-     * метод actionPerformed(ActionEvent e)
-     * осуществляет основной функционал программы AboutDetails
-     * используя JFileChooser для файлового диалога и e.getSource() == btnOpenPathToFile,
-     * для активации при клике по кнопке - запускаем процесс, в ходе которого, пользователем
-     * выбирается файл, все подробности файла выписываются в текствое поле(textOutputArea)
+     * method actionPerformed(ActionEvent e)
+     * implements the main functionality of the program AboutDetails
+     * using JFileChooser for file dialog and e.getSource() == btnOpenPathToFile,
+     * to activate by clicking on the button - we start the process during which, by the user
+     * the file is selected, all the details of the file are written out in the text field(textOutputArea)
      */
 
     @Override
@@ -110,8 +110,8 @@ public class AboutFile
 }
 
 /**
- * класс RunApplication - хранит в себе main, для запуска приложения
- * main - точка входа в класс и приложение
+ * class RunApplication - stores the main in itself to run the application
+ * main - the entry point to the classroom and the application
  */
 class RunApplication{
 

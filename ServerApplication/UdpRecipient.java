@@ -3,9 +3,9 @@ import java.net.*;
 public class UdpRecipient {
     public static void main(String[] args) {
         File file = new File("test.txt");
-        System.out.println("Прием данных...");
+        System.out.println("Receiving data...");
         try{
-            //Прием файла
+            // Accept file
            acceptFile(file, 8033, 1000);
         }
         catch (IOException e){
@@ -22,8 +22,8 @@ public class UdpRecipient {
         FileOutputStream fileOutputStream = new FileOutputStream(file);
 
         try{
-            /* установка времени ожидания: если в течение 10 секунд
-               не принято ни одного пакета, прием данных заканчивается*/
+            /* Setting the waiting time: if within 10 seconds
+              not a single packet has been received, data reception is ending */
             datagramSocket.setSoTimeout(60000);
             while(true)
             {
@@ -34,9 +34,9 @@ public class UdpRecipient {
         }
         catch (SocketTimeoutException e)
         {
-            // если время ожидания вышло
+            // If the waiting time has expired
             fileOutputStream.close();
-            System.out.println("Истекло время ожидания, прием данных закончен");
+            System.out.println("The waiting time has expired, data reception is finished");
         }
 
     }

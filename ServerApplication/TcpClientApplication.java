@@ -16,8 +16,8 @@ import java.net.UnknownHostException;
 
 
 /**class TcpClientApplication
- * содержит графическую обетрку приложения "Клиент"
- * выполняет общение с сервером
+ * contains the graphical wrapper of the Client application
+ * contains a graphical outline of the "Client" application
  */
 public class TcpClientApplication
         extends JFrame {
@@ -30,15 +30,15 @@ public class TcpClientApplication
     public JTextField textField;
 
     /**
-     * метод TcpClientApplication()
-     * инициализирует компоненты с параметрами по умолчанию
+     * method TcpClientApplication()
+     * initializes components with default parameters
      */
 
     public void TcpClientApplicationInitialization() {
 
         //icons
-        Icon iconClear = new ImageIcon("D:\\Game Dev\\MyProjects\\Learn\\Learning\\QuickSolution\\Jp12\\src\\images\\clear.png");
-        Icon iconExit = new ImageIcon("D:\\Game Dev\\MyProjects\\Learn\\Learning\\QuickSolution\\Jp12\\src\\images\\exit.png");
+        Icon iconClear = new ImageIcon("..\images\clear.png");
+        Icon iconExit = new ImageIcon("..\images\exit.png");
 
         //mainframe
         JFrame frame = new JFrame();
@@ -110,18 +110,19 @@ public class TcpClientApplication
     }
 
     /**
-     * метод actionExit()
-     * @param e
-     * осуществляет выход с приложения, при клике кнопке "Exit"
+     * method actionExit()
+     * @param with
+     * exits the application by clicking the "Exit" button
      */
 
     public void actionExit(ActionEvent e) {
         System.exit(0);
     }
 
-    /**
-     * метод actionClearFields(ActionEvent e)
-     * осуществляет очистку всех полей, при клике кнопке "Clear"
+     /**
+     * method actionClearFields()
+     * @param with
+     * clears all fields by clicking the "Clear" button
      */
 
     public void actionClearFields(ActionEvent e) {
@@ -129,9 +130,9 @@ public class TcpClientApplication
         textClientArea.setText("");
     }
 
-    /**
-     * метод actionAppendText()
-     * осуществляет добавление текста к существующиму
+     /**
+     * method actionAppendText()
+     * adds text to an existing one
      */
 
     public void actionAppendText() {
@@ -140,11 +141,11 @@ public class TcpClientApplication
     }
 
     /**
-     * метод actionSend()
-     * @param e
-     * осуществляет "общение" между пользователем и сервером,
-     * используя метод clientSend(Socket socket) из класса ClientFunctional
-     * для активации при клике по кнопке "Send"  - запускаем процесс
+     * method actionSend()
+     * @param with
+     * performs "communication" between the user and the server,
+     * uses method clientSend(Socket socket) from ClientFunctional class
+     * to activate by clicking on the button "Send"  - starting the process
      */
     public void actionSend(ActionEvent e) {
 
@@ -156,17 +157,17 @@ public class TcpClientApplication
 
 /**
  * class ClientFunctional
- * выполняет основной функционал работы клиента
- * содержит конструктор ClientFunctional() и метод
+ * performs the main functionality of the client's work
+ * contains a constructor ClientFunctional() and method
  *  public void clientSend()
  */
 
  class ClientFunctional{
 
-    /** конструктор ClientFunctional()
-     *  осуществляет подключение к серверу,
-     *  вывод информации в текстовое поле,
-     *  алгоритм приема и отправки данных, с сервера и на сервер
+    /** constructor ClientFunctional()
+     *  connects to the server,
+     *  displaying information in a text field,
+     *  the algorithm for receiving and sending data, from the server and to the server
      */
 
     public void ClientFunctional()
@@ -199,12 +200,12 @@ public class TcpClientApplication
 
 
     /**
-     * метод public void clientSend()
+     * method public void clientSend()
      * @param socket
-     * осуществляет "общение" между пользователем и сервером
-     * используя текстовое поле textField, вводим запрашиваемую информацию серверу(количество строк и столбцов
-     * матрицы, NxM)
-     * для активации при клике по кнопке "Send"  - запускаем процесс
+     * performs "communication" between the user and the server
+     * using the textField textfield, we enter the requested information to the server (the number of rows and columns
+     * matrix, NxM)
+     * to activate it by clicking on the "Send" button, start the process
      */
 
     public void clientSend(Socket socket) {
@@ -214,7 +215,7 @@ public class TcpClientApplication
         InputStream input = socket.getInputStream();
         OutputStream output = socket.getOutputStream();
 
-        //конвертируем потоки в другой тип, чтобы легче было обрабатывать сообщения
+        // We convert streams to another type to make it easier to process messages.
         DataInputStream dataInput = new DataInputStream(input);
         DataOutputStream dataOutput = new DataOutputStream(output);
 
@@ -222,21 +223,21 @@ public class TcpClientApplication
         String line = null, line2 = null, message = null;
 
 
-                //get message from server "Size for matrix"
+                // get message from server "Size for matrix"
                 message = dataInput.readUTF();
                 clientApplication.textClientArea.append(message);
 
-                //get size of matrix from user
+                // get size of matrix from user
                 line = clientApplication.textField.getText();
                 clientApplication.textClientArea.append(clientApplication.textField.getText() + "\n");
                 clientApplication.textClientArea.append("Sending to the server...");
                 dataOutput.writeUTF(line);
 
-                //get message
+                // get message
                 message = dataInput.readUTF();
                 clientApplication.textClientArea.append(message);
 
-                //get size of matrix from user
+                // get size of matrix from user
                 line2 = clientApplication.textField.getText();
                 clientApplication.textClientArea.append(clientApplication.textField.getText() + "\n");
                 clientApplication.textClientArea.append("Sending to the server...");
@@ -252,8 +253,8 @@ public class TcpClientApplication
 
 
 /**
- * класс RunClientApplication - хранит в себе main, для запуска приложения
- * main - точка входа в класс и приложение
+ * class RunClientApplication - stores the main in itself to run the application
+ * main - точкаlog in to the classroom and the application
  */
 class RunClientApplication {
 

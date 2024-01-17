@@ -6,14 +6,14 @@ public class UdpSender {
             byte[] data = new byte[1000];
             DatagramSocket datagramSocket = new DatagramSocket();
             InetAddress inetAddress = InetAddress.getLocalHost();
-            /*файл с именем должен лежать в корне проекта*/
+            /*the file with the name should be in the root of the project*/
             FileInputStream fileInputStream = new FileInputStream(new File("test.txt"));
             DatagramPacket packet;
             while (fileInputStream.read(data) != -1)
             {
-                //создание пакета данных
+                //creating a data package
                 packet = new DatagramPacket(data, data.length, inetAddress, 8033);
-                datagramSocket.send(packet); //отправление пакета
+                datagramSocket.send(packet); //sending a package
             }
             fileInputStream.close();
             System.out.println("File send");
@@ -21,14 +21,14 @@ public class UdpSender {
 
         catch (UnknownHostException e)
         {
-        // неверный адрес получателя
+        // invalid recipient address
             e.printStackTrace();
         } catch (SocketException e)
         {
-        // возникли ошибки при передаче данных
+        // errors occurred during data transmission
             e.printStackTrace();
         } catch (FileNotFoundException e) {
-        // не найден отправляемый файл
+        // the file being sent was not found
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

@@ -27,17 +27,17 @@ public class BubbleTree
     private JTextField textField;
 
     /**
-     * конструктор BubbleTree()
-     * инициализирует компоненты с параметрами по умолчанию
+     * constructor BubbleTree()
+     * initializes components with default parameters
      */
 
     BubbleTree() {
 
         //icons
-        Icon iconClear = new ImageIcon("D:\\Game Dev\\MyProjects\\Learn\\Learning\\QuickSolution\\Jp12\\src\\images\\clear.png");
-        Icon iconSave = new ImageIcon("D:\\Game Dev\\MyProjects\\Learn\\Learning\\QuickSolution\\Jp12\\src\\images\\save.png");
-        Icon iconLoad = new ImageIcon("D:\\Game Dev\\MyProjects\\Learn\\Learning\\QuickSolution\\Jp12\\src\\images\\load.png");
-        Icon iconExit = new ImageIcon("D:\\Game Dev\\MyProjects\\Learn\\Learning\\QuickSolution\\Jp12\\src\\images\\exit.png");
+        Icon iconClear = new ImageIcon("..\images\clear.png");
+        Icon iconSave = new ImageIcon("..\images\save.png");
+        Icon iconLoad = new ImageIcon("..\images\load.png");
+        Icon iconExit = new ImageIcon("..\images\exit.png");
 
         //mainframe
         JFrame frame = new JFrame();
@@ -129,10 +129,10 @@ public class BubbleTree
     FileNameExtensionFilter filter = new FileNameExtensionFilter("*.bubtree", "*.*");
 
     /**
-     * метод actionSend(ActionEvent e)
-     * осуществляет "общение" между пользователем и компьютером(условно)
-     * используя текстовое поле textField, вводим запрашиваемую информацию компьютеру(размер массива, искомый элемент)
-     * для активации при клике по кнопке "Send"  - запускаем процесс
+     * method actionSend(ActionEvent e)
+     * performs "communication" between the user and the computer (conditionally)
+     * using the textField textfield, enter the requested information to the computer (array size, desired element)
+     * to activate when clicking on the "Send" button, start the process
      */
 
     public void actionSend(ActionEvent e) {
@@ -151,11 +151,11 @@ public class BubbleTree
     }
 
     /**
-     * метод actionSaveFile(ActionEvent e)
-     * осуществляет потоковый вывод в файл BufferedWriter outFile =  new BufferedWriter(new FileWriter(fileName)),
-     * формат ".bubtree"
-     * используя JFileChooser для открытия файлового диалога fileChooser.showDialog(),
-     * для активации при клике по кнопке "Save"  - запускаем процесс
+     * method actionSaveFile(ActionEvent e)
+     * performs streaming output to a file BufferedWriter outFile =  new BufferedWriter(new FileWriter(fileName)),
+     * format ".bubtree"
+     * using JFileChooser to open a file dialog fileChooser.showDialog(),
+     * to activate it by clicking on the "Save" button, we start the process
      */
 
     public void actionSaveFile(ActionEvent e) {
@@ -195,11 +195,11 @@ public class BubbleTree
     }
 
     /**
-     * метод actionLoadFile(ActionEvent e)
-     * осуществляет потоковый вывод из файла BufferedReader reader =  new BufferedReader(new FileWriter(fileName)),
-     * формат ".bubtree"
-     * используя JFileChooser для открытия файлового диалога fileChooser.showDialog(),
-     * для активации при клике по кнопке "Load"  - запускаем процесс, информация отобразится в текстовом поле(textOutputArea)
+     * method actionLoadFile(ActionEvent e)
+     * performs streaming output from a file BufferedReader reader =  new BufferedReader(new FileWriter(fileName)),
+     * format ".bubtree"
+     * using JFileChooser to open a file dialog fileChooser.showDialog(),
+     * to activate when clicking on the "Load" button, we start the process, the information will be displayed in the text field(textOutputArea)
      */
 
     public void actionLoadFile(ActionEvent e) {
@@ -227,8 +227,8 @@ public class BubbleTree
     }
 
     /**
-     * метод actionExit(ActionEvent e)
-     * осуществляет выход с приложения, при клике кнопке "Exit"
+     * method actionExit(ActionEvent e)
+     * exits the application by clicking the "Exit" button
      */
 
     public void actionExit(ActionEvent e)
@@ -237,8 +237,8 @@ public class BubbleTree
     }
 
     /**
-     * метод actionClearFields(ActionEvent e)
-     * осуществляет очистку всех полей, при клике кнопке "Clear"
+     * method actionClearFields(ActionEvent e)
+     * clears all fields by clicking the "Clear" button
      */
 
     public void actionClearFields(ActionEvent e)
@@ -248,8 +248,8 @@ public class BubbleTree
     }
 
     /**
-     * метод actionAppendText()
-     * осуществляет добавление текста к существующиму
+     * method actionAppendText()
+     * adds text to an existing one
      */
 
     public void actionAppendText()
@@ -259,21 +259,21 @@ public class BubbleTree
     }
 
     /**
-     * метод  fillingArrayRandomy(int size, int element)
-     * генерирует заполнение массива числами, принимает размер (size) и
-     * элемент для бинарного поиска (element)
-     * * Выводит результат генерации в текстовое поле textOutputArea
+     * method  fillingArrayRandomy(int size, int element)
+     * generates the filling of the array with numbers, takes the size (size) и
+     * an element for binary search (element)
+     * Outputs the result of the generation in a text field textOutputArea
      */
 
     public void fillingArrayRandomy(int size, int element)
     {
-        //Ждем от пользователя числа о размерности массива
-        //заполняем его случайными числами
+        // We are waiting for a number from the user about the dimension of the array
+        // we fill it with random numbers
 
         Random random = new Random();
         int[] bArray = new int[size];
 
-        //заполнение
+        // Filling
         for (int i = 0; i < size; i++)
         {
             bArray[i] = random.nextInt(10) + 1;
@@ -283,10 +283,10 @@ public class BubbleTree
     }
 
     /**
-     * метод  bubbleSortProcess(int[] array, int element)
-     * выаолняет сортировку массива методом пузырька, принимает массив ([] array) и
-     * элемент для бинарного поиска (element)
-     * Выводит результат сортировки в текстовое поле textOutputArea
+     * method  bubbleSortProcess(int[] array, int element)
+     * performs sorting of the bubble's method array, accepts an array ([] array) and
+     * an element for binary search (element)
+     * Displays the sorting result in a text field textOutputArea
      */
 
     public void bubbleSortProcess(int[] array, int element)
@@ -294,7 +294,7 @@ public class BubbleTree
         boolean isSorted = false;
         int buffer;
 
-        //запускаем процесс пузырьковой сортировки
+        // Starting the bubble sorting process
         while (!isSorted)
         {
             isSorted = true;
@@ -317,10 +317,10 @@ public class BubbleTree
     }
 
     /**
-     * метод  binarySearch(int element, int[] array)
-     * осуществляет бинарный поиск числа в массиве,  принимает массив ([] array) и
-     * элемент для бинарного поиска (element). В случае, если элемент не найден
-     * выведет об этом сообщение:
+     * method  binarySearch(int element, int[] array)
+     * performs a binary search for a number in an array, accepts an array([] array) and
+     * an element for binary search (element). In case the element is not found
+     * displays a message about this:
      * "Element not found. Method binary's search end job after "
      *                     + comparisonCount + " comparisons
      *
@@ -328,8 +328,8 @@ public class BubbleTree
 
     public void binarySearch(int element, int[] array)
     {
-        //Ждем от пользователя элемент для бинарного поиска
-        //выполняем поиск
+        // We are waiting for the user to provide an element for binary search
+        // We are performing a search
 
         int firstElement, lastElement;
 
@@ -337,17 +337,17 @@ public class BubbleTree
         lastElement = array.length - 1;
 
         int position;
-        int comparisonCount = 1;   // для подсчета количества сравнений
+        int comparisonCount = 1;   // To count the number of comparisons
 
-        // для начала найдем индекс среднего элемента массива
+        // First, let's find the index of the middle element of the array
         position = (firstElement + lastElement) / 2;
 
         while ((array[position] != element) && (firstElement <= lastElement)) {
             comparisonCount++;
-            if (array[position] > element) {  // если число заданного для поиска
-                lastElement = position - 1; // уменьшаем позицию на 1.
+            if (array[position] > element) {  // If the number is set for the search
+                lastElement = position - 1; // Reduce the position by 1.
             } else {
-                firstElement = position + 1;    // иначе увеличиваем на 1
+                firstElement = position + 1;    // Otherwise, we increase it by 1
             }
             position = (firstElement + lastElement) / 2;
         }
@@ -363,8 +363,8 @@ public class BubbleTree
 }
 
 /**
- * класс RunApplication - хранит в себе main, для запуска приложения
- * main - точка входа в класс и приложение
+ * class RunApplication - stores the main in itself to run the application
+ * main - the entry point to the classroom and the application
  */
 class RunApplication {
 

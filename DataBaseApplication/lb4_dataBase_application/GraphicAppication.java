@@ -14,8 +14,8 @@ import java.sql.SQLException;
 
 /**
  * class GraphicAppication
- * выполняет основной функционал работы приложения
- * содержит конструктор GraphicAppication() и методы
+ * performs the main functionality of the application
+ * contains a constructor GraphicAppication() and methods
  *  public void actionPerformed() и
  *  public void actionAaa()
  */
@@ -48,8 +48,8 @@ extends JFrame
 
         DataBaseManager dataBaseManager = new DataBaseManager();
         /**
-         * конструктор GraphicAppication()
-         * инициализирует компоненты с параметрами по умолчанию
+         * constructor GraphicAppication()
+         * initializes components with default parameters
          */
 
         GraphicAppication() {
@@ -226,9 +226,9 @@ extends JFrame
         }
 
     /**
-     * метод public void actionPerformed()
-     * осуществляет события происходящие по нажатию кнопок
-     * используя ActionEvent e
+     * method public void actionPerformed()
+     * executes events that occur when buttons are pressed
+     * uses ActionEvent with
      * e.getSource() == btnName
      */
 

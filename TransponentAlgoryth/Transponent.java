@@ -6,10 +6,10 @@ public class Transponent {
 
     public static void main(String[] args) {
 /**
- * main - точка входа в класс и приложение
- * создает базовую матрицу n на n
+ * main - the entry point to the classroom and the application
+ * creates a basic matrix NxN
  */
-        //создаем матрицу n на n
+        // Create matrix
         int n = 3;
         int[][] a = new int[n][n];
         for (int i = 0; i < n; i++) {
@@ -18,7 +18,7 @@ public class Transponent {
             }
         }
 
-        // выводим начальную матрицу
+        // We output the initial matrix
         System.out.println("Начальная матрица");
         System.out.println("------");
         for (int i = 0; i < n; i++) {
@@ -28,10 +28,10 @@ public class Transponent {
             System.out.println();
         }
 /**
- * транспонирует матрицу n на n
- * и выводит ее на экран
+ * transposes the matrix NxN
+ * and displays it on the screen
  */
-        //транспонирование матрицы
+        // matrix transposition
         for (int i = 0; i < n; i++) {
             for (int j = i+1; j < n; j++) {
                 int temp = a[i][j];
@@ -40,7 +40,7 @@ public class Transponent {
             }
         }
 
-        //выводим на экран транспонированную матрицу
+        // We display the transposed matrix on the screen
         System.out.println();
         System.out.println("Новая матрица");
         System.out.println("------");
